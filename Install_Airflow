@@ -1,0 +1,15 @@
+sudo apt-get install python3-pip
+sudo pip3 install virtualenv 
+virtualenv mcmp
+source mcmp/bin/activate
+
+export AIRFLOW_HOME=~/airflow
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install libssl-dev
+sudo apt-get install libkrb5-dev
+sudo apt-get install libsasl2-dev
+
+pip install apache-airflow[async,devel,celery,crypto,druid,gcp_api,jdbc,hdfs,hive,kerberos,ldap,password,postgres,qds,rabbitmq,s3,samba,slack]
+airflow initdb
+airflow webserver
+airflow scheduler
